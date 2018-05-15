@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\package.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;net46;net47;netstandard2.0;netcoreapp2.0</TargetFrameworks>
+
+    <AssemblyVersion>$(MajorVersion).0.0.0</AssemblyVersion>
+    <FileVersion>$(Version).$(Revision)</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyName>EnterpriseLibrary.SemanticLogging.EventSourceAnalyzer</AssemblyName>
+    <RootNamespace>EnterpriseLibrary.SemanticLogging.EventSourceAnalyzer</RootNamespace>
+    <AssemblyTitle>Enterprise Library Semantic Logging Application Block - EventSource Analyzer</AssemblyTitle>
+
+    <PackageId>EnterpriseLibrary.SemanticLogging.EventSourceAnalyzer</PackageId>
+    <Title>Enterprise Library Semantic Logging Application Block - EventSource Analyzer</Title>
+    <Description>The EventSource Analyzer is part of the Semantic Logging Application Block. It can be incorporated into your automated tests to help validate your EventSource instances.</Description>
+    <Summary>The EventSource Analyzer helps validate EventSource instances.</Summary>
+    <PackageTags>slab ETW semantic logging EventSource analyzer test testing</PackageTags>
+
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\EnterpriseLibrary.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SemanticLogging\SemanticLogging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0'">
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0'">
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+
+    <None Include="..\..\SemanticLogging.licenseheader">
+      <Link>SemanticLogging.licenseheader</Link>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\NuGet\Readme.txt">
+      <Pack>true</Pack>
+      <Visible>False</Visible>
+      <PackagePath></PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputPath>$(SolutionDir)..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>$(SolutionDir)..\bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\EnterpriseLibrary.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\EnterpriseLibrary.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging", "Src\SemanticLogging\SemanticLogging.csproj", "{2CD4105B-0DD6-4C18-9B37-05D8E8F57303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.Tests", "Tests\SemanticLogging.Tests\SemanticLogging.Tests.csproj", "{1735E7F3-65BA-4E29-B319-6C2CA03659D1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4B187511-187B-48B1-A593-18BA835B49C3} = {4B187511-187B-48B1-A593-18BA835B49C3}
+		{27EACC2A-EE11-420B-8760-4945412B0C4A} = {27EACC2A-EE11-420B-8760-4945412B0C4A}
+		{D7979E9B-7978-48FE-B345-3C767A20F9A1} = {D7979E9B-7978-48FE-B345-3C767A20F9A1}
+		{8440AEA2-CD55-42A0-8724-2ECCE2B32374} = {8440AEA2-CD55-42A0-8724-2ECCE2B32374}
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569} = {AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.Etw", "Src\SemanticLogging.Etw\SemanticLogging.Etw.csproj", "{8440AEA2-CD55-42A0-8724-2ECCE2B32374}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4B187511-187B-48B1-A593-18BA835B49C3} = {4B187511-187B-48B1-A593-18BA835B49C3}
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569} = {AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.Etw.WindowsService", "Src\SemanticLogging.Etw.WindowsService\SemanticLogging.Etw.WindowsService.csproj", "{0EBF89E7-D2B2-4968-BC17-0DA066029C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.WindowsAzure", "Src\SemanticLogging.WindowsAzure\SemanticLogging.WindowsAzure.csproj", "{D7979E9B-7978-48FE-B345-3C767A20F9A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.Database", "Src\SemanticLogging.Database\SemanticLogging.Database.csproj", "{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A93313C-F04A-4623-BD8C-2C314116A782}"
+	ProjectSection(SolutionItems) = preProject
+		..\appveyor.yml = ..\appveyor.yml
+		..\package.props = ..\package.props
+		..\version.props = ..\version.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.TextFile", "Src\SemanticLogging.TextFile\SemanticLogging.TextFile.csproj", "{4B187511-187B-48B1-A593-18BA835B49C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticLogging.EventSourceAnalyzer", "Src\SemanticLogging.EventSourceAnalyzer\SemanticLogging.EventSourceAnalyzer.csproj", "{27EACC2A-EE11-420B-8760-4945412B0C4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semantic Logging", "Semantic Logging", "{CC296579-9B71-4FA3-82CF-A235372ACC6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{DC545502-6333-45FC-B635-45926D291815}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CD4105B-0DD6-4C18-9B37-05D8E8F57303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD4105B-0DD6-4C18-9B37-05D8E8F57303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD4105B-0DD6-4C18-9B37-05D8E8F57303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD4105B-0DD6-4C18-9B37-05D8E8F57303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1735E7F3-65BA-4E29-B319-6C2CA03659D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1735E7F3-65BA-4E29-B319-6C2CA03659D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1735E7F3-65BA-4E29-B319-6C2CA03659D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1735E7F3-65BA-4E29-B319-6C2CA03659D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8440AEA2-CD55-42A0-8724-2ECCE2B32374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8440AEA2-CD55-42A0-8724-2ECCE2B32374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8440AEA2-CD55-42A0-8724-2ECCE2B32374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8440AEA2-CD55-42A0-8724-2ECCE2B32374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBF89E7-D2B2-4968-BC17-0DA066029C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBF89E7-D2B2-4968-BC17-0DA066029C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBF89E7-D2B2-4968-BC17-0DA066029C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBF89E7-D2B2-4968-BC17-0DA066029C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7979E9B-7978-48FE-B345-3C767A20F9A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7979E9B-7978-48FE-B345-3C767A20F9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7979E9B-7978-48FE-B345-3C767A20F9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7979E9B-7978-48FE-B345-3C767A20F9A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B187511-187B-48B1-A593-18BA835B49C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B187511-187B-48B1-A593-18BA835B49C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B187511-187B-48B1-A593-18BA835B49C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B187511-187B-48B1-A593-18BA835B49C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27EACC2A-EE11-420B-8760-4945412B0C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EACC2A-EE11-420B-8760-4945412B0C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EACC2A-EE11-420B-8760-4945412B0C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EACC2A-EE11-420B-8760-4945412B0C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CD4105B-0DD6-4C18-9B37-05D8E8F57303} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{1735E7F3-65BA-4E29-B319-6C2CA03659D1} = {DC545502-6333-45FC-B635-45926D291815}
+		{8440AEA2-CD55-42A0-8724-2ECCE2B32374} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{0EBF89E7-D2B2-4968-BC17-0DA066029C46} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{D7979E9B-7978-48FE-B345-3C767A20F9A1} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{AC34C8E7-2A5B-412C-AFF7-CF7F52EE4569} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{4B187511-187B-48B1-A593-18BA835B49C3} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{27EACC2A-EE11-420B-8760-4945412B0C4A} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+		{DC545502-6333-45FC-B635-45926D291815} = {CC296579-9B71-4FA3-82CF-A235372ACC6E}
+	EndGlobalSection
+EndGlobal

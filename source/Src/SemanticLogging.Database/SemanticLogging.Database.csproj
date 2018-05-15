@@ -1,0 +1,133 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\package.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;net46;net47;netstandard2.0;netcoreapp2.0</TargetFrameworks>
+
+    <AssemblyVersion>$(MajorVersion).0.0.0</AssemblyVersion>
+    <FileVersion>$(Version).$(Revision)</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyName>EnterpriseLibrary.SemanticLogging.Database</AssemblyName>
+    <RootNamespace>EnterpriseLibrary.SemanticLogging</RootNamespace>
+    <AssemblyTitle>Enterprise Library Semantic Logging Application Block - SQL Server Sink</AssemblyTitle>
+
+    <PackageId>EnterpriseLibrary.SemanticLogging.Database</PackageId>
+    <Title>Enterprise Library Semantic Logging Application Block</Title>
+    <Description>The Semantic Logging Application Block provides a set of destinations to persist events published by a subclass of EventSource, This add-on packages adds support to persisting log entries in SQL Server and Azure SQL Database.</Description>
+    <Summary>The Semantic Logging Application Block provides a set of destinations to persist events published by a subclass of EventSource.</Summary>
+    <PackageTags>entlib entlib6 slab enterprise library ETW semantic logging EventSource event listener structured strongly-typed block sink SQL database table futures OSS</PackageTags>
+
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\EnterpriseLibrary.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EntLibTransientFaultHandling>..\..\..\..\TransientFaultHandling\source\Src\TransientFaultHandling\TransientFaultHandling.csproj</EntLibTransientFaultHandling>
+    <EntLibTransientFaultHandlingData>..\..\..\..\TransientFaultHandling\source\Src\TransientFaultHandling.Data\TransientFaultHandling.Data.csproj</EntLibTransientFaultHandlingData>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(EntLibTransientFaultHandling)" Condition="Exists('$(EntLibTransientFaultHandling)') AND '$(EntLibDependencyType)' == 'Project'" />
+    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling" Version="$(EntLibTransientFaultHandlingVersion)" Condition="!Exists('$(EntLibTransientFaultHandling)') OR '$(EntLibDependencyType)' == 'Package'" />
+
+    <ProjectReference Include="$(EntLibTransientFaultHandlingData)" Condition="Exists('$(EntLibTransientFaultHandlingData)') AND '$(EntLibDependencyType)' == 'Project'" />
+    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling.Data" Version="$(EntLibTransientFaultHandlingVersion)" Condition="!Exists('$(EntLibTransientFaultHandlingData)') OR '$(EntLibDependencyType)' == 'Package'" />
+
+    <ProjectReference Include="..\SemanticLogging\SemanticLogging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+
+    <None Include="..\..\SemanticLogging.licenseheader">
+      <Link>SemanticLogging.licenseheader</Link>
+    </None>
+
+    <None Include="..\..\Scripts\CreateSemanticLoggingDb.cmd">
+      <Link>Scripts\CreateSemanticLoggingDb.cmd</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <None Include="..\..\Scripts\CreateSemanticLoggingDatabase.sql">
+      <Link>Scripts\CreateSemanticLoggingDatabase.sql</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\Scripts\CreateSemanticLoggingDatabaseObjects.sql">
+      <Link>Scripts\CreateSemanticLoggingDatabaseObjects.sql</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\NuGet\Readme.txt">
+      <Pack>true</Pack>
+      <Visible>False</Visible>
+      <PackagePath></PackagePath>
+    </Content>
+
+    <Content Include="..\..\Scripts\CreateSemanticLoggingDatabase.sql">
+      <Pack>true</Pack>
+      <Visible>False</Visible>
+      <PackagePath>scripts</PackagePath>
+    </Content>
+
+    <Content Include="..\..\Scripts\CreateSemanticLoggingDatabaseObjects.sql">
+      <Pack>true</Pack>
+      <Visible>False</Visible>
+      <PackagePath>scripts</PackagePath>
+    </Content>
+
+    <Content Include="..\..\Scripts\CreateSemanticLoggingDb.cmd">
+      <Pack>true</Pack>
+      <Visible>False</Visible>
+      <PackagePath>scripts</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0'">
+
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputPath>$(SolutionDir)..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>$(SolutionDir)..\bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\..\EnterpriseLibrary.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+</Project>

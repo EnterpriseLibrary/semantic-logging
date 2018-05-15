@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata schemaVersion="2">
+    <id>EnterpriseLibrary.SemanticLogging.Service</id>
+    <version>$SemanticLogging_svc_Version$</version>
+    <title>Semantic Logging Application Block - Out-of-process Service</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft; patterns-and-practices</owners>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>http://slab.codeplex.com</projectUrl>
+    <iconUrl>http://nuget.org/Media/Default/Packages/Unity/2.0/entlib_new_icon_100x100.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>The Semantic Logging Application Block provides a set of destinations (sinks) to persist application events published using a subclass of the EventSource class.</summary>
+    <description>
+       The Semantic Logging Application Block provides a set of destinations (sinks) to persist application events published using a subclass of the EventSource class from the System.Diagnostics.Tracing namespace. Sinks include Azure table storage, SQL Server databases, file, console and rolling files with several formats and you can extend the block by creating your own custom formatters and sinks. The console sink is part of this nuget package. Other Sinks mentioned above are available as separate nuget packages. For the sinks that can store structured data, the block preserves the full structure of the event payload in order to facilitate analysing or processing the logged data. 
+      This package contains an out-of-proc Windows Service for SLAB.
+    </description>
+    <copyright>© 2014 Microsoft Corporation</copyright>
+    <tags>entlib entlib6 slab enterprise library ETW semantic logging EventSource event listener structured strongly-typed block OSS</tags>
+  </metadata>
+  <files>
+    <file src="NuGet\Readme-service.txt" target="Readme.txt" />
+    <file src="NuGet\install-packages.ps1" target="tools" />
+    <file src="..\bin\$Configuration$\Microsoft.Practices.EnterpriseLibrary.SemanticLogging.Etw.dll" target="tools" />
+    <file src="..\bin\$Configuration$\Microsoft.Practices.EnterpriseLibrary.SemanticLogging.Etw.pdb" target="tools" />
+    <file src="..\bin\$Configuration$\SemanticLogging-svc.exe" target="tools" />
+    <file src="..\bin\$Configuration$\SemanticLogging-svc.exe.config" target="tools" />
+    <file src="..\bin\$Configuration$\SemanticLogging-svc.pdb" target="tools" />
+    <file src="..\bin\$Configuration$\SemanticLogging-svc.xml" target="tools" />
+    <file src="..\bin\$Configuration$\SemanticLogging-svc.xsd" target="tools" />
+    <file src="..\build\bin\nuget.exe" target="tools\.nuget" />
+    <file src="NuGet\packages-service.config" target="tools\.nuget\packages.config" />
+  </files>
+</package>
