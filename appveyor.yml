@@ -19,7 +19,7 @@ install:
   - ps: $xRevision = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision"
   - ps: $xRevision.Node.InnerText = $env:revision
   - ps: $xRevision.Node.OwnerDocument.Save($xRevision.Path)
-  - ps: $msiPath = "$($env:USERPROFILE)\SqlLocalDB.msi"
+  - ps: $msiPath = "$($env:USERPROFILE)\SqlLocalDB.msi" 
   - ps: (New-Object Net.WebClient).DownloadFile('https://download.microsoft.com/download/9/0/7/907AD35F-9F9C-43A5-9789-52470555DB90/ENU/SqlLocalDB.msi', $msiPath)
   - ps: Start-Process msiexec.exe -Wait -ArgumentList '/I $msiPath /quiet IACCEPTSQLLOCALDBLICENSETERMS=YES'
 
