@@ -17,7 +17,7 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.Etw
         {
             this.element = new XElement(XName.Get("sqlDatabaseSink", Constants.Namespace),
                                         new XAttribute("instanceName", "instanceName"),
-                                        new XAttribute("connectionString", "Data Source=(localdb)\v11.0;Initial Catalog=SemanticLoggingTests;Integrated Security=True"));
+                                        new XAttribute("connectionString", "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SemanticLoggingTests;Integrated Security=True"));
 
             this.sut = new SqlDatabaseSinkElement();
         }

@@ -43,7 +43,7 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.Sinks
         [TestMethod]
         public void when_cannot_connect_to_database_then_flush_should_finish_faulted()
         {
-            const string ValidNotExisting = @"Data Source=(localdb)\v11.0; AttachDBFilename='|DataDirectory|\DoesNotExist.mdf';Initial Catalog=SemanticLoggingTests;Integrated Security=True";
+            const string ValidNotExisting = @"Data Source=(localdb)\MSSQLLocalDB; AttachDBFilename='|DataDirectory|\DoesNotExist.mdf';Initial Catalog=SemanticLoggingTests;Integrated Security=True";
 
             using (var sink = new SqlDatabaseSink("test", ValidNotExisting, "tableName", "storedProcedureName", Buffering.DefaultBufferingInterval, Buffering.DefaultBufferingCount, Buffering.DefaultMaxBufferSize, TimeSpan.FromSeconds(20)))
             using (var collectErrorsListener = new MockEventListener())
@@ -68,7 +68,7 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.Sinks
         [TestMethod]
         public void when_cannot_connect_to_database_then_on_completed_should_not_stall_or_throw()
         {
-            const string ValidNotExisting = @"Data Source=(localdb)\v11.0; AttachDBFilename='|DataDirectory|\DoesNotExist.mdf';Initial Catalog=SemanticLoggingTests;Integrated Security=True";
+            const string ValidNotExisting = @"Data Source=(localdb)\MSSQLLocalDB; AttachDBFilename='|DataDirectory|\DoesNotExist.mdf';Initial Catalog=SemanticLoggingTests;Integrated Security=True";
 
             using (var sink = new SqlDatabaseSink("test", ValidNotExisting, "tableName", "storedProcedureName", Buffering.DefaultBufferingInterval, Buffering.DefaultBufferingCount, Buffering.DefaultMaxBufferSize, TimeSpan.FromSeconds(20)))
             using (var collectErrorsListener = new MockEventListener())

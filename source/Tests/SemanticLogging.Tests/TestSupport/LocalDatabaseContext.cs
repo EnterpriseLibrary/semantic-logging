@@ -9,7 +9,7 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.TestSupport
 {
     public abstract class LocalDatabaseContext : ContextBase
     {
-        protected const string LocalDbConnectionString = @"Data Source=(LocalDB)\v11.0;Initial Catalog=master;Integrated Security=True";
+        protected const string LocalDbConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True";
 
         protected string dbFileName;
         protected string dbLogFileName;
@@ -64,7 +64,7 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.TestSupport
 
         protected string GetSqlConnectionString()
         {
-            var cs = string.Format(@"Data Source=(LocalDB)\v11.0;AttachDBFileName={1};Initial Catalog={0};Integrated Security=True;", this.dbName, this.dbFileName);
+            var cs = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDBFileName={1};Initial Catalog={0};Integrated Security=True;", this.dbName, this.dbFileName);
 
             return cs;
         }
