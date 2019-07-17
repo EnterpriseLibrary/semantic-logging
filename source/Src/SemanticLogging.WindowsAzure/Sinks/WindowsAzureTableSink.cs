@@ -165,7 +165,7 @@ namespace EnterpriseLibrary.SemanticLogging.Sinks
 
         internal virtual Task<IList<TableResult>> ExecuteBatchAsync(TableBatchOperation batch)
         {
-            return this.table.ExecuteBatchAsync(batch, this.cancellationTokenSource.Token);
+            return this.table.ExecuteBatchAsync(batch, null, null, this.cancellationTokenSource.Token);
         }
 
         internal virtual async Task<bool> EnsureTableExistsAsync()
@@ -178,7 +178,7 @@ namespace EnterpriseLibrary.SemanticLogging.Sinks
 
             try
             {
-                await this.table.CreateIfNotExistsAsync(token).ConfigureAwait(false);
+                await this.table.CreateIfNotExistsAsync(null, null, token).ConfigureAwait(false);
                 return true;
             }
             catch (OperationCanceledException)
