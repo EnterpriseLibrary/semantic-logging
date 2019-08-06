@@ -27,7 +27,7 @@
   <PropertyGroup>
     <!--In order to debug the EntLib dependencies open 'SemanticLogging (With Dependencies).sln' and change 'EntLibDependencyType' value to Project -->
     <EntLibDependencyType>Package</EntLibDependencyType>
-    <EntLibTransientFaultHandlingVersion>6.1.*</EntLibTransientFaultHandlingVersion>
+    <EntLibTransientFaultHandlingVersion>6.0.*</EntLibTransientFaultHandlingVersion>
   </PropertyGroup>
 
 </Project>
