@@ -19,8 +19,8 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.Sinks
     [TestClass]
     public class sql_db_sink_given_configuration
     {
-        private static readonly string ValidConnectionString = ConfigurationManager.ConnectionStrings["valid"].ConnectionString;
-        private static readonly string InvalidConnectionString = ConfigurationManager.ConnectionStrings["invalid"].ConnectionString;
+        private static readonly string ValidConnectionString = ConfigurationHelper.GetConnectionString("valid");
+        private static readonly string InvalidConnectionString = ConfigurationHelper.GetConnectionString("invalid");
 
         [TestMethod]
         public void when_creating_listener_for_null_instance_name_then_throws()

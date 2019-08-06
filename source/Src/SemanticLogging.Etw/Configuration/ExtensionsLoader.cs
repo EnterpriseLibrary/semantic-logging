@@ -40,7 +40,7 @@ namespace EnterpriseLibrary.SemanticLogging.Etw.Configuration
         }
 
         /// <summary>
-        /// Gets the event listener elements that derives from base class <see cref="SinkElement"/>.
+        /// Gets the event listener elements that derives from base class <see cref="ISinkElement"/>.
         /// </summary>
         internal IEnumerable<Lazy<ISinkElement>> SinkElements
         {
@@ -48,7 +48,7 @@ namespace EnterpriseLibrary.SemanticLogging.Etw.Configuration
         }
 
         /// <summary>
-        /// Gets the event text formatter elements that derives from type <see cref="FormatterElement"/>.
+        /// Gets the event text formatter elements that derives from type <see cref="IFormatterElement"/>.
         /// </summary>
         internal IEnumerable<Lazy<IFormatterElement>> FormatterElements
         {
