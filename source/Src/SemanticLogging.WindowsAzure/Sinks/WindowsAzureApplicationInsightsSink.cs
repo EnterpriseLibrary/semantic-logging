@@ -105,6 +105,8 @@ namespace EnterpriseLibrary.SemanticLogging.Sinks
             AddProperty(GetNonDefaultString(eventEntry.Schema.Version), "Version", telemetry);
             AddProperty(GetNonDefaultString(eventEntry.ActivityId), "ActivityId", telemetry);
             AddProperty(GetNonDefaultString(eventEntry.RelatedActivityId), "RelatedActivityId", telemetry);
+            AddProperty(GetNonDefaultString(eventEntry.Schema.Task), "Task", telemetry);
+            AddProperty(GetNonDefaultString(eventEntry.Schema.TaskName), "TaskName", telemetry);
             AddProperty(eventEntry.Schema.KeywordsDescription, "KeywordsDescription", telemetry);
             for (int i = 0; i < eventEntry.Schema.Payload.Length; i++)
             {
@@ -116,7 +118,7 @@ namespace EnterpriseLibrary.SemanticLogging.Sinks
 
         // Some properties are not useful to include if they have default values; this
         // helper method returns null for those cases so that the properties aren't included.
-        private string GetNonDefaultString<T>(T input) => input.Equals(default(T)) ? null : input.ToString();
+        private string GetNonDefaultString<T>(T input) => input?.Equals(default(T)) ?? true ? null : input.ToString();
 
         private SeverityLevel GetSeverity(EventLevel? eventEntry)
         {
