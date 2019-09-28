@@ -21,13 +21,13 @@
     <NewtonsoftJsonVersion>11.0.*</NewtonsoftJsonVersion>
     <MicrosoftDataServicesClientVersion>5.8.*</MicrosoftDataServicesClientVersion>
     <MicrosoftDiagnosticsTracingTraceEventVersion>1.0.15</MicrosoftDiagnosticsTracingTraceEventVersion>
-    <WindowsAzureStorageVersion>9.1.*</WindowsAzureStorageVersion>
+    <WindowsAzureStorageVersion>9.3.*</WindowsAzureStorageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <!--In order to debug the EntLib dependencies open 'SemanticLogging (With Dependencies).sln' and change 'EntLibDependencyType' value to Project -->
     <EntLibDependencyType>Package</EntLibDependencyType>
-    <EntLibTransientFaultHandlingVersion>6.1.*</EntLibTransientFaultHandlingVersion>
+    <EntLibTransientFaultHandlingVersion>6.0.*</EntLibTransientFaultHandlingVersion>
   </PropertyGroup>
 
 </Project>

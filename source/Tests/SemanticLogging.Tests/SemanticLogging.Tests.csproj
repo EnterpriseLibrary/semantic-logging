@@ -2,7 +2,7 @@
   <Import Project="..\..\..\package.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net47</TargetFrameworks>
+    <TargetFrameworks>net47;netcoreapp2.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
 
     <AssemblyVersion>$(MajorVersion).0.0.0</AssemblyVersion>
@@ -19,8 +19,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.3.0-beta2" />
     <PackageReference Include="MSTest.TestFramework" Version="1.3.0-beta2" />
+
+    <PackageReference Include="Microsoft.Data.Services.Client" Version="$(MicrosoftDataServicesClientVersion)" />
+    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" Version="$(MicrosoftDiagnosticsTracingTraceEventVersion)" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+    <PackageReference Include="WindowsAzure.Storage" Version="$(WindowsAzureStorageVersion)" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,7 +36,6 @@
     <ProjectReference Include="..\..\Src\SemanticLogging.EventSourceAnalyzer\SemanticLogging.EventSourceAnalyzer.csproj" />
     <ProjectReference Include="..\..\Src\SemanticLogging.WindowsAzure\SemanticLogging.WindowsAzure.csproj" />
     <ProjectReference Include="..\..\Src\SemanticLogging.Database\SemanticLogging.Database.csproj" />
-    <ProjectReference Include="..\..\Src\SemanticLogging.Etw\SemanticLogging.Etw.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0'">
@@ -45,9 +51,7 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Extensions" />
 
-    <PackageReference Include="Microsoft.Data.Services.Client" Version="$(MicrosoftDataServicesClientVersion)" />
-    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" Version="$(MicrosoftDiagnosticsTracingTraceEventVersion)" />
-    <PackageReference Include="WindowsAzure.Storage" Version="$(WindowsAzureStorageVersion)" />
+    <ProjectReference Include="..\..\Src\SemanticLogging.Etw\SemanticLogging.Etw.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -214,6 +218,18 @@
 
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0'">
+    <Compile Remove="**\*.PartialTrust.cs" />
+    <Compile Remove="Etw\**\*.cs" />
+    <Compile Remove="TestSupport\AssemblyBuilder.cs" />
+    <Compile Remove="TestSupport\DisposableDomain.cs" />
+    <Compile Remove="UsingEventListener\DeferredEnablementFixture.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0'">
+    <Compile Remove="TestSupport\NetCoreExtensions.cs" />
+  </ItemGroup>
+      
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>

@@ -2,7 +2,7 @@
   <Import Project="..\..\..\package.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net45;net46;net47;netstandard2.0;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net461;net47;netstandard2.0;netcoreapp2.0</TargetFrameworks>
 
     <AssemblyVersion>$(MajorVersion).0.0.0</AssemblyVersion>
     <FileVersion>$(Version).$(Revision)</FileVersion>
@@ -31,10 +31,10 @@
 
   <ItemGroup>
     <ProjectReference Include="$(EntLibTransientFaultHandling)" Condition="Exists('$(EntLibTransientFaultHandling)') AND '$(EntLibDependencyType)' == 'Project'" />
-    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling" Version="$(EntLibTransientFaultHandlingVersion)" Condition="!Exists('$(EntLibTransientFaultHandling)') OR '$(EntLibDependencyType)' == 'Package'" />
+    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling.NetCore" Version="$(EntLibTransientFaultHandlingVersion)" Condition="!Exists('$(EntLibTransientFaultHandling)') OR '$(EntLibDependencyType)' == 'Package'" />
 
     <ProjectReference Include="$(EntLibTransientFaultHandlingData)" Condition="Exists('$(EntLibTransientFaultHandlingData)') AND '$(EntLibDependencyType)' == 'Project'" />
-    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling.Data" Version="$(EntLibTransientFaultHandlingVersion)" Condition="!Exists('$(EntLibTransientFaultHandlingData)') OR '$(EntLibDependencyType)' == 'Package'" />
+    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling.Data.NetCore" Version="$(EntLibTransientFaultHandlingVersion)" Condition="!Exists('$(EntLibTransientFaultHandlingData)') OR '$(EntLibDependencyType)' == 'Package'" />
 
     <ProjectReference Include="..\SemanticLogging\SemanticLogging.csproj" />
   </ItemGroup>
@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0'">
-
+    <Reference Include="System.Transactions" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EnterpriseLibrary.SemanticLogging.Database.Utility;
 using EnterpriseLibrary.SemanticLogging.Utility;
-using EnterpriseLibrary.TransientFaultHandling;
+using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
 namespace EnterpriseLibrary.SemanticLogging.Sinks
 {

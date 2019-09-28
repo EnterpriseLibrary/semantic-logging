@@ -21,10 +21,27 @@ namespace EnterpriseLibrary.SemanticLogging.Tests.TestSupport
 
             if (string.IsNullOrEmpty(value))
             {
-                value = ConfigurationManager.AppSettings[settingName];
+                var configuration =
+#if NETCOREAPP
+                    ConfigurationManager.OpenMappedExeConfiguration(new ExeConfigurationFileMap { ExeConfigFilename = "EnterpriseLibrary.SemanticLogging.Tests.dll.config" }, ConfigurationUserLevel.None);
+#else
+                    ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+#endif
+                value = configuration.AppSettings.Settings[settingName]?.Value;
             }
 
             return value;
+        }
+
+        public static string GetConnectionString(string connectionStringName)
+        {
+            var configuration =
+#if NETCOREAPP
+                    ConfigurationManager.OpenMappedExeConfiguration(new ExeConfigurationFileMap { ExeConfigFilename = "EnterpriseLibrary.SemanticLogging.Tests.dll.config" }, ConfigurationUserLevel.None);
+#else
+                    ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+#endif
+            return configuration.ConnectionStrings.ConnectionStrings[connectionStringName]?.ConnectionString;
         }
     }
 }
