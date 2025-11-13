@@ -42,7 +42,7 @@
 
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0' AND '$(TargetFramework)' != 'net8.0'">
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0' AND '$(TargetFramework)' != 'netcoreapp2.0' AND '$(TargetFramework)' != 'net10.0'">
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data.Services.Client" />
@@ -218,7 +218,7 @@
 
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0' OR '$(TargetFramework)' == 'net8.0'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0' OR '$(TargetFramework)' == 'net10.0'">
     <Compile Remove="**\*.PartialTrust.cs" />
     <Compile Remove="Etw\**\*.cs" />
     <Compile Remove="TestSupport\AssemblyBuilder.cs" />
